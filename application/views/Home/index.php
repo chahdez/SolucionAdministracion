@@ -7,4 +7,5 @@
  */
 
 ?>
-<h1>Home</h1>
+<script src="libs/js/jquery.js" type="text/javascript"></script>
+<script src="scripts/login.js"></script>
