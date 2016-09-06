@@ -5,7 +5,5 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 ?>
-<script src="libs/js/jquery.js" type="text/javascript"></script>
-<script src="scripts/login.js"></script>
+
