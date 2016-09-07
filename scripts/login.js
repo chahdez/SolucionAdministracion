@@ -37,7 +37,8 @@ function ValidaSesion() {
 //                       $("#AnswerLogin").html("El usuario o la contaseña son incorrectos.").fadeIn("slow").delay(1500).fadeOut("slow");
 //                   }
 //               }
-//        });  
+//        }); 
+//window.location.href= "SolucionAdministracion/Home/Index.php";
         }else{
              $("#AnswerLogin").html("*Favor de ingresar contaseña.").fadeIn("slow").removeClass("hidden").delay(1500).slideToggle("slow");            
         } 
