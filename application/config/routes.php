@@ -53,5 +53,6 @@ $route['default_controller'] = 'Login';
 $route['Home'] = 'Home';
 $route['Login'] = 'Login';
 $route['API/Comparativos'] = 'API/comparativos';
+$route['API/Oficinas'] = 'API/oficinas';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

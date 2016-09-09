@@ -12,4 +12,11 @@ class API extends CI_Controller {
         $this->output->set_content_type('application/json');
         $this->output->set_output('{"aaData":'.json_encode($comparativos)."}");
     }
+    
+    public function oficinas(){
+        $this->load->database();
+        $query = $this->db->query("SELECT * FROM ctrlOficinas");
+        $this->output->set_content_type('application/json');
+        $this->output->set_output('{"Oficinas":'.json_encode($query->result_array())."}");
+    }
 }
