@@ -8,8 +8,8 @@ class API extends CI_Controller {
     }
     
     public function comparativos(){
-        $comparativo = array("Volvo", "BMW", "Toyota","Volvo", "BMW", "<button type:'button'>Ver</button>");
+        $comparativo = array("Volvo", "BMW", "Toyota","Volvo", "BMW", "<button>Ver</button>");
         $this->output->set_content_type('application/json');
-        $this->output->set_output('{"aaData":['.json_encode($comparativo)."]}");
+        $this->output->set_output(json_encode(array('Comparativos'=> $comparativo)));
     }
 }
