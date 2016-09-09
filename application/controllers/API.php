@@ -18,14 +18,14 @@ class API extends CI_Controller {
     
     public function comparativos(){
         $this->load->database();
-        $query = $this->db->query("SELECT * FROM transComparativos");
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_Comparativos");
         $this->output->set_content_type('application/json');
         $this->output->set_output('{"Comparativos":'.json_encode($query->result_array())."}");
     }
     
     public function oficinas(){
         $this->load->database();
-        $query = $this->db->query("SELECT * FROM ctrlOficinas");
+        $query = $this->db->query("CALL Usp_Administracion_Oficinas");
         $this->output->set_content_type('application/json');
         $this->output->set_output('{"Oficinas":'.json_encode($query->result_array())."}");
     }
