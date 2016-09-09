@@ -43,6 +43,7 @@ function ValidaSesion() {
 //               }
            }).done(function( data, textStatus, jqXHR ) {
     // if ( console && console.log ) {
+    
          console.log( "La solicitud se ha completado correctamente." );
     // }
  }) .fail(function( jqXHR, textStatus, errorThrown ) {
