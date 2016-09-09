@@ -4,6 +4,8 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
+<link href="libs/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
+<script src="libs/js/dataTables.min.js" type="text/javascript"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script src="scripts/home.js"></script>
 <div class="container">
@@ -48,20 +50,28 @@
 
          </div>
          <div class="row">
-               <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Descripcion</th>
-                <th>Fecha</th>
-                <th>Status</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="DatosJson">
-             
-             
-            </tbody>
-        </table>
+         <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Extn.</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
          </div>
     </div>
 </div>
