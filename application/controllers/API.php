@@ -19,8 +19,20 @@ class API extends CI_Controller {
     public function comparativos(){
         $this->load->database();
         $query = $this->db->query("CALL Usp_Administracion_Comparativo_Comparativos");
+        $directorio = array();
+        foreach ($query->result() as $row){
+            array_push(
+                    $directorio, 
+                    $row->ComparativoID,
+                    $row->Titulo,
+                    $row->FechaHoraRegistro,
+                    $row->Status,
+                    $row->Accion
+            );
+        }
+
         $this->output->set_content_type('application/json');
-        $this->output->set_output('{"Comparativos":'.json_encode($query->result_array())."}");
+        $this->output->set_output('{"aaData":'.json_encode($directorio)."}");
     }
     
     public function oficinas(){
