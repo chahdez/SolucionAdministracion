@@ -5,17 +5,11 @@ $(document).ready(function() {
 } );
 
 function VerComparativo(ComparativoID){
-    window.location.href = "Comparativo/Ver?ComparativoID="+ComparativoID;
+    localStorage.setItem("ComparativoID", ComparativoID); // Asignamos en SesionStore el comparativo
+    window.location.href = "Comparativo/Ver";
 }
 function EditarComparativo(){
-       $.ajax({
-     url:"API/oficinas" ,
-     type: "POST",
-     dataType: "JSON"       
-   }).done(function( data, textStatus, jqXHR ) {
-    console.log( "La solicitud se ha completado correctamente." );
- }).fail(function( data, textStatus, jqXHR ) {
-         console.log( "La solicitud NO se ha completado." );     
- });
+    localStorage.setItem("ComparativoID", ComparativoID); // Asignamos en SesionStore el comparativo
+    window.location.href = "Comparativo/Editar";
 }
 
