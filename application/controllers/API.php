@@ -21,14 +21,16 @@ class API extends CI_Controller {
         $query = $this->db->query("CALL Usp_Administracion_Comparativo_Comparativos");
         $directorio = array();
         foreach ($query->result() as $row){
+            $objeto = array();
             array_push(
-                    $directorio, 
+                    $objeto, 
                     $row->ComparativoID,
                     $row->Titulo,
                     $row->FechaHoraRegistro,
                     $row->Status,
                     $row->Accion
             );
+            array_push($directorio,$objeto);
         }
 
         $this->output->set_content_type('application/json');
