@@ -1,6 +1,36 @@
 $(document).ready(function(){    
     VerComparativo();
-    //localStorage.getItem("ComparativoID")
+     $("#AlertaValidacionError").hide();
+     $("#AlertaValidacionExito").hide();
+    //localStorage.getItem("ComparativoID");
+    
+    // Funcion que  agrega una nueva clave
+    $("#AgregaClave").click(function(){
+         var clave = $("#clave").val();
+         var numero = $("#numero").val();
+         var importe = $("#importe").val();
+         console.log("Clave: "+clave+", numero: "+numero+" e importe: "+importe);
+         if(ValidaPrecio(importe)){
+            if(clave != null && clave != ""){
+                if(numero != null && numero > 0){
+                     $("#clave").val("");
+                     $("#numero").val(0);
+                     $("#importe").val("");
+                    $("#AlertaValidacionExito").html("<strong>Registro agregado con exito.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");   
+                }else{
+                   $("#AlertaValidacionError").html("<strong>Ingrese un numero por favor.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");   
+                }
+            }else{
+                $("#AlertaValidacionError").html("<strong>Ingrese una clave por favor.</strong>").fadeIn("slow").delay(3500).fadeOut("slow");  
+            }
+         }else{
+            $("#AlertaValidacionError").html("<strong>El precio ingresado no es uno valido.( Ejemplo: 150.00 , 1500.00, 15000.00 ... etc)</strong>").fadeIn("slow").delay(5500).fadeOut("slow"); 
+         }
+    });
+    // Funcion que analiza el corte
+    $("#AnalizarCorte").click(function (){
+        alert("Me hablaste para analizar? :3");
+    });
 });
 // Funcion que devuelve el conjunto de oficinas
 function VerComparativo(){
@@ -25,7 +55,11 @@ function VerComparativo(){
     console.log( "La solicitud genero: "+textStatus );     
  });
 }
-
+// Funcion que valida si el precio es valido
+function ValidaPrecio(precio){
+    var reg = new RegExp("^[1-50000000]{1,8}[.]{1}[0-9]{2,6}");
+        return  reg.test(precio);    
+}
 // Funcion que devuelve la informacion de una Oficia por su ID
 function RecuperaSucursalInfo(OficinaID){
         $.ajax({
@@ -52,6 +86,7 @@ function RecuperaSucursalInfo(OficinaID){
 function RecuperaFraccionamientoDatos(FraccionamientoID){
     TabActivado("fracci_"+FraccionamientoID , "FraccionamientoPestañas"); // Activamos la pestaña solicitada
 }
+
 // Funcion que actualiz el tab de oficinas o sucursales
 function TabActivado(TabID , ContenedorID){
     var tab = TabID;
