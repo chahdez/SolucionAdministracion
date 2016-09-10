@@ -5,6 +5,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link href="libs/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
+<script src="libs/js/dataTables.min.js" type="text/javascript"></script>
+
 <script src="scripts/home.js"></script>
 <div class="container">
     <div class="row ">
@@ -35,8 +38,8 @@
       <label for="sel1">Filtrado por:</label>
       <select class="form-control" id="sel1">
         <option>Status</option>
-        <option>Fecha</option>
-        <option>Descripcion</option>
+<!--        <option>Fecha</option>
+        <option>Descripcion</option>-->
       </select>
     </div>
   </form>   
@@ -48,20 +51,20 @@
 
          </div>
          <div class="row">
-               <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th>Descripcion</th>
-                <th>Fecha</th>
+            <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ComparativoID</th>
+                <th>Titulo</th>
+                <th>FechaHoraRegistro</th>
                 <th>Status</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="DatosJson">
-             
-             
-            </tbody>
-        </table>
+                <th>Accion</th>
+<!--                
+                <th>Salary</th>-->
+            </tr>
+        </thead>
+       
+    </table>
          </div>
     </div>
 </div>
