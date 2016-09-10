@@ -1,0 +1,24 @@
+    .TituloFecha{
+     font-size: 23px;
+    letter-spacing: -.5px;
+    border-bottom: 1px solid #333339;
+    padding: 15px 1;
+    margin-left: 120px;
+    margin-right: 380px;
+    text-transform: capitalize;
+    }
+    .TituloRegistro{
+        font-size: 23px;
+        letter-spacing: -.5px;
+        padding-top: 15px;
+        text-transform: capitalize;
+    }
+    .LineaCierre{
+        border-bottom: 1px solid #333339;
+        padding-bottom: 15px;
+    }
+     #ContenedorBtn{
+                padding-top: 25px;
+                margin: 20px auto;
+        
+    }
