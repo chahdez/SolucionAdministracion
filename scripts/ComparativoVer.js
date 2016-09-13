@@ -104,30 +104,46 @@ function RecuperaSucursalInfo(OficinaID){
        }
        $("#FraccionamientoPestañas").html(pestañas);
       TabActivado("li_"+OficinaID,"OficinasPestañas");
-    RecuperaFraccionamientoDatos(fracActivo );
+    RecuperaFraccionamientoFechas(fracActivo );
+    RecuperaFraccionamientoDatos(fracActivo)
  }).fail(function( data, textStatus, jqXHR ) {
         console.log( "La solicitud genero: "+textStatus );      
  });
 }
 // Funcion que devuelve el listado de datos de un fraccionamiento
-function RecuperaFraccionamientoDatos(FracciID){ 
+function RecuperaFraccionamientoDatos(FraccID){
+      $.ajax({
+                url:"../API/PartidasComparativo" ,
+                type: "POST",
+                dataType: "JSON",
+                data: { 
+                    ComparativoID :  localStorage.getItem("ComparativoID")
+                    ,FraccionamientoID : FraccID
+                }
+              }).done(function( data ) {  
+                  var filas = "";
+              for(var i = 0; i < data.PartidasComparativo.length; i++){
+                  filas+= '<tr><td>'+data.PartidasComparativo[i].Clave+'</td><td>'+data.PartidasComparativo[i].NumeroPago+'</td><td>'+data.PartidasComparativo[i].ImporteTotal+'</td></tr>'
+              }
+              $("#CuerpoRegistros").html(filas);
+            }).fail(function(data, textStatus ) {
+                 alert( "Ocurrio un error solicitud genero: "+data );      
+            });
+}
+// Funcion que devuelve el corte de fechas de un fraccionamiento
+function RecuperaFraccionamientoFechas(FracciID){ 
     var compa =  localStorage.getItem("ComparativoID");
-    alert("ComparativoID: "+compa+" y FraccionamientoID: "+FracciID);
             $.ajax({
                 url:"../API/FechasCorteComparativo" ,
                 type: "POST",
                 dataType: "JSON",
-                data: {
-                    ComparativoID : compa
-                    ,FraccionamientoID : FracciID        
-                    }
-              }).done(function( data ) {
-                console.log(data);    
-                $("#FechaCorteVer").html("Fecha Corte: "+data.FechasCorteComparativo.FechaInicio+" - "+data.FechasCorteComparativo.FechaFin);
-            }).fail(function( textStatus ) {
-                   console.log( "Ocurrio un error solicitud genero: "+textStatus );      
+                data: {  ComparativoID : parseInt( compa) ,FraccionamientoID : parseInt(FracciID) }
+              }).done(function( data ) {   
+                $("#FechaCorteVer").html("Fecha Corte: "+data.FechasCorteComparativo[0].FechaInicio+" - "+data.FechasCorteComparativo[0].FechaFin);
+            }).fail(function(data, textStatus ) {
+                 alert( "Ocurrio un error solicitud genero: "+data );      
             });
-               TabActivado("fracci_"+FracciID , "FraccionamientoPestañas"); // Activamos la pestaña solicitada
+         TabActivado("fracci_"+FracciID , "FraccionamientoPestañas"); // Activamos la pestaña solicitada
 }
 // Funcion que devuelve la informacion del comparativo
 function TituloFechaComparativo(ComparativoID){
