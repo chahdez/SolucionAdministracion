@@ -33,7 +33,7 @@
               <button type="button" class="btn btn-danger btn-small" data-toggle="modal" data-target="#myModal">Nuevo Comparativo</button> 
              </div>           
          </div>  
-         <div class="col-xs-12">
+         <div id="ContenedorTabla" class="col-xs-12">
                 <table id="example" class="display" cellspacing="0" width="100%">
                     <thead>
                         <tr>
