@@ -8,7 +8,7 @@
 <div  class="container">
     <div class="col-xs-12">
         <div class="col-xs-11">
-            <h3 class="TituloFecha">Comparativo Corte de la Primera semana de Septiembre</h3>
+            <h3 id="TituloComparativoVer" class="TituloFecha"></h3>
         </div>
         <div id="ContenedorBtn" class="col-xs-1">
             <button id="AnalizarCorte" type="button"  class="btn btn-small btn-primary">Analizar</button>
@@ -19,7 +19,7 @@
     </div>
 </ul>  
     <div class="col-xs-12">
-        <h3 class="TituloFecha">Fecha de Corte:</h1>
+        <h3 id="FechaCorteVer" class="TituloFecha"></h3>
     </div>
    
      <div class="col-xs-12">
