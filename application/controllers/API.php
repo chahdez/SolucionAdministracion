@@ -96,7 +96,20 @@ class API extends CI_Controller {
     }
     
     /*Recuperar Informacion de Comparativo*/
-   public function RecuperaInformacionComparativo(){
-       
+   public function InformacionComparativo(){
+        $ComparativoID = $this->input->post('ComparativoID');
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_Informacion($ComparativoID)");
+        $this->output->set_output('{"Comparativo":'.json_encode($query->result_array())."}");
+   }
+   
+   /*Recuperar Informacion de Corte y Registros de Comparativo*/
+   public function InformacionDetalleComparativo(){
+        /*$ComparativoID = $this->input->post('ComparativoID');
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_Informacion($ComparativoID)");
+        $this->output->set_output('{"Comparativo":'.json_encode($query->result_array())."}");*/
    }
 }
