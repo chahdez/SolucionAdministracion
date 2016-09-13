@@ -35,7 +35,7 @@ function CargaInformacionComparativos(tableId, urlData){
 // Funcion que nos lleva a ver los comparativos
 function VerComparativo(ComparativoID){
     localStorage.setItem("ComparativoID", ComparativoID); // Asignamos en SesionStore el comparativo
-    window.location.href = "Comparativo/Ver";
+    window.location.href = "../Comparativo/Ver";
 }
 // Funcion que nos lleva a editar los comparativos
 function EditarComparativo(){
