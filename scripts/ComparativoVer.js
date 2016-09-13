@@ -1,22 +1,45 @@
 $(document).ready(function(){    
     VerComparativo();
      $("#AlertaValidacionError").hide();
-     $("#AlertaValidacionExito").hide();
-    //localStorage.getItem("ComparativoID");
+     $("#AlertaValidacionExito").hide();    
     
     // Funcion que  agrega una nueva clave
     $("#AgregaClave").click(function(){
          var clave = $("#clave").val();
          var numero = $("#numero").val();
          var importe = $("#importe").val();
-         console.log("Clave: "+clave+", numero: "+numero+" e importe: "+importe);
+         var fraccionamientoID = "" ;
+        $("#FraccionamientoPestañas li").each(function (){
+            if($(this).hasClass("active")){
+                fraccionamientoID = (this.id).substring(7);
+                console.log(fraccionamientoID)
+            }
+        });
          if(ValidaPrecio(importe)){
             if(clave != null && clave != ""){
                 if(numero != null && numero > 0){
-                     $("#clave").val("");
-                     $("#numero").val(0);
-                     $("#importe").val("");
-                    $("#AlertaValidacionExito").html("<strong>Registro agregado con exito.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");   
+                    $.ajax({
+                        url:"../API/InsertarDetalleComparativo" ,
+                        type: "POST",
+                        dataType: "JSON", 
+                        data: { 
+                            FraccionamientoID : fraccionamientoID
+                            ,ComparativoID: localStorage.getItem("ComparativoID")
+                            ,Clave : clave
+                            ,NumeroPago: numero
+                            ,Importe :  importe
+                        }
+                      }).done(function( data) {
+                          if(data.InsertarDetalleComparativo){
+                            $("#clave").val("");
+                             $("#numero").val(0);
+                             $("#importe").val("");
+                             $("#AlertaValidacionExito").html("<strong>Registro agregado con exito.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");     
+                          }else{
+                            $("#AlertaValidacionError").html("<strong>Ocurrio un error en los datos, verifique por favor.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");     
+                          }
+                    });
+                     
                 }else{
                    $("#AlertaValidacionError").html("<strong>Ingrese un numero por favor.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");   
                 }
@@ -57,7 +80,7 @@ function VerComparativo(){
 }
 // Funcion que valida si el precio es valido
 function ValidaPrecio(precio){
-    var reg = new RegExp("^[1-50000000]{1,8}[.]{1}[0-9]{2,6}");
+    var reg = new RegExp("^[0-9]{1,8}[.]{1}[0-9]{2,6}");
         return  reg.test(precio);    
 }
 // Funcion que devuelve la informacion de una Oficia por su ID
