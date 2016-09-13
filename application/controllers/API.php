@@ -55,4 +55,33 @@ class API extends CI_Controller {
         $this->output->set_content_type('application/json');
         $this->output->set_output('{"Fraccionamientos":'.json_encode($query->result_array())."}");
     }
+    
+    /*Insertar Registro de Corte en Comparativo*/
+    public function InsertarDetalleComparativo(){
+        $FraccionamientoID = $this->input->post('FraccionamientoID');
+        $ComparativoID = $this->input->post('ComparativoID');
+        $Clave = $this->input->post('Clave');
+        $NumeroPago = $this->input->post('NumeroPago');
+        $ImporteTotal = $this->input->post('Importe');
+        
+        $data = array(
+            'id' => '' ,
+            'idComparativo' => $ComparativoID ,
+            'idFraccionamiento' => $FraccionamientoID,
+            'Clave' => $Clave,
+            'NumeroPago' => $NumeroPago,
+            'Importe' => 0,
+            'GastosCobranza' => 0,
+            'Intereses' => 0,
+            'ImporteTotal' => $ImporteTotal
+        );
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        if($this->db->insert('transDetalleComparativo', $data)){
+            $status = true;
+        } else {
+            $status = false;
+        }
+        $this->output->set_output('{"InsertarDetalleComparativo":'.json_encode($status)."}");
+    }
 }
