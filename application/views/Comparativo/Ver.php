@@ -53,11 +53,14 @@
         <table id="example" class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Cavle</th>
+                            <th>Clave</th>
                             <th># Pago</th>
                             <th>Importe</th>                            
                         </tr>
-                    </thead>       
+                    </thead>  
+                    <tbody id="CuerpoRegistros">
+                        
+                    </tbody>
                 </table>
     </div>
 </div>
