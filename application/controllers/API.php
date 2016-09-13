@@ -104,12 +104,22 @@ class API extends CI_Controller {
         $this->output->set_output('{"Comparativo":'.json_encode($query->result_array())."}");
    }
    
-   /*Recuperar Informacion de Corte y Registros de Comparativo*/
-   public function InformacionDetalleComparativo(){
-        /*$ComparativoID = $this->input->post('ComparativoID');
+   /*Recuperar Registros de Comparativo*/
+   public function PartidasComparativo(){
+        $ComparativoID = $this->input->post('ComparativoID');
+        $FraccionamientoID = $this->input->post('FraccionamientoID');
         $this->output->set_content_type('application/json');
         $this->load->database();
-        $query = $this->db->query("CALL Usp_Administracion_Comparativo_Informacion($ComparativoID)");
-        $this->output->set_output('{"Comparativo":'.json_encode($query->result_array())."}");*/
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_PartidasRegistradas($ComparativoID , $FraccionamientoID)");
+        $this->output->set_output('{"PartidasComparativo":{'.json_encode($query->result_array())."". "}");
+   }
+   /*Recuperar Fecha de Corte de un Comparativo*/
+   public function FechasCorteComparativo(){
+        $ComparativoID = $this->input->post('ComparativoID');
+        $FraccionamientoID = $this->input->post('FraccionamientoID');
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_FechasCorteComparativo($ComparativoID , $FraccionamientoID)");
+        $this->output->set_output('{"FechasCorteComparativo":{'.json_encode($query->result_array())."". "}");
    }
 }
