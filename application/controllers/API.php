@@ -84,4 +84,25 @@ class API extends CI_Controller {
         }
         $this->output->set_output('{"InsertarDetalleComparativo":'.json_encode($status)."}");
     }
+    
+    /*Crear Nuevo Comparativo*/
+    public function NuevoComparativo(){
+        date_default_timezone_set('America/Mexico_City');
+        $Titulo = $this->input->post('Titulo');
+        $data = array(
+            'id' => '' ,
+            'Titulo' => $Titulo ,
+            'FechaHoraRegistro' => date("Y-m-d H:i:s"),
+            'status' => 1
+            
+        );
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        if($this->db->insert('transComparativos', $data)){
+            $status = true;
+        } else {
+            $status = false;
+        }
+        $this->output->set_output('{"NuevoComparativo":'.json_encode($status)."}");
+    }
 }
