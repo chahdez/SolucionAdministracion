@@ -89,20 +89,14 @@ class API extends CI_Controller {
     public function NuevoComparativo(){
         date_default_timezone_set('America/Mexico_City');
         $Titulo = $this->input->post('Titulo');
-        $data = array(
-            'id' => '' ,
-            'Titulo' => $Titulo ,
-            'FechaHoraRegistro' => date("Y-m-d H:i:s"),
-            'status' => 1
-            
-        );
         $this->output->set_content_type('application/json');
         $this->load->database();
-        if($this->db->insert('transComparativos', $data)){
-            $status = true;
-        } else {
-            $status = false;
-        }
-        $this->output->set_output('{"NuevoComparativo":'.json_encode($status)."}");
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_Nuevo('$Titulo')");
+        $this->output->set_output('{"NuevoComparativo":'.json_encode($query->result_array())."}");
     }
+    
+    /*Recuperar Informacion de Comparativo*/
+   public function RecuperaInformacionComparativo(){
+       
+   }
 }
