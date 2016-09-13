@@ -1,14 +1,14 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-<script src="libs/js/jquery.js" type="text/javascript"></script>
-<link href="libs/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<link href="libs/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
+<script src="../libs/js/jquery.js" type="text/javascript"></script>
+<link href="../libs/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link href="../libs/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
 <!-- Latest compiled and minified JavaScript -->
-<script src="libs/js/bootstrap.min.js" type="text/javascript"></script>
-<link href="libs/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
-<script src="libs/js/dataTables.min.js" type="text/javascript"></script>
+<script src="../libs/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="../libs/css/dataTables.min.css" rel="stylesheet" type="text/css"/>
+<script src="../libs/js/dataTables.min.js" type="text/javascript"></script>
 
-<script src="scripts/home.js"></script>
+<script src="../scripts/home.js"></script>
 <div class="container">
  <div class="col-xs-12 " >
         <div class="col-lg-3">
@@ -62,12 +62,13 @@
           <form>
   <div class="form-group">
     <label for="email">Descripcion:</label>
-    <input type="text" class="form-control" id="descripcionModal">
+    <input type="text" id="TituloComparativo" class="form-control" id="descripcionModal">
   </div>
           </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+          <button id="CancelarTitulo" type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+           <button id="AgregarComparativo" type="button" class="btn btn-primary" >Agregar</button>
       </div>
     </div>
 
