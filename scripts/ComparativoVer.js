@@ -134,8 +134,14 @@ function RecuperaFraccionamientoFechas(FracciID){
                 type: "POST",
                 dataType: "JSON",
                 data: {  ComparativoID : parseInt( compa) ,FraccionamientoID : parseInt(FracciID) }
-              }).done(function( data ) {   
-                $("#FechaCorteVer").html("Fecha Corte: "+data.FechasCorteComparativo[0].FechaInicio+" - "+data.FechasCorteComparativo[0].FechaFin);
+              }).done(function( data ) { 
+                  if(data.FechasCorteComparativo.length > 0){
+                   $("#FechaCorteVer").html("Fecha Corte: "+data.FechasCorteComparativo[0].FechaInicio+" - "+data.FechasCorteComparativo[0].FechaFin);   
+                  }else{
+                      alert("Este fraccionamiento, no tiene fecha de corte");
+                      $("#FechaCorteVer").html("");
+                  }
+                
             }).fail(function(data, textStatus ) {
                  alert( "Ocurrio un error solicitud genero: "+data );      
             });
