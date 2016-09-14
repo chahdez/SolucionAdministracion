@@ -113,6 +113,16 @@ class API extends CI_Controller {
         $query = $this->db->query("CALL Usp_Administracion_Comparativo_PartidasRegistradas($ComparativoID , $FraccionamientoID)");
         $this->output->set_output('{"PartidasComparativo":'.json_encode($query->result_array())."}");
    }
+   
+   /*Elimina Partida de Comparativo*/
+   public function EliminarRegistro(){
+        $ID = $this->input->post('id');
+        $this->output->set_content_type('application/json');
+        $this->load->database();
+        $query = $this->db->query("CALL Usp_Administracion_Comparativo_EliminarRegistro('$ID')");
+        $this->output->set_output('{"EliminarRegistro":'.json_encode($query->result_array())."}");
+   }
+   
    /*Recuperar Fecha de Corte de un Comparativo*/
    public function FechasCorteComparativo(){
         $ComparativoID = $this->input->post('ComparativoID');
@@ -120,6 +130,6 @@ class API extends CI_Controller {
         $this->output->set_content_type('application/json');
         $this->load->database();
         $query = $this->db->query("CALL Usp_Administracion_Comparativo_FechasCorteComparativo($ComparativoID , $FraccionamientoID)");
-                $this->output->set_output('{"FechasCorteComparativo":'.json_encode($query->result_array())."}");
+        $this->output->set_output('{"FechasCorteComparativo":'.json_encode($query->result_array())."}");
    }
 }
