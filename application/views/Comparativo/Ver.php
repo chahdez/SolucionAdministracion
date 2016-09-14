@@ -1,35 +1,32 @@
-<link href="../libs/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
-<link href="../libs/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-<script src="../libs/js/jquery.js" type="text/javascript"></script>
-<script src="../libs/js/bootstrap.min.js" type="text/javascript"></script>
+<?php $this->load->view('Partials/page_head'); ?>
 <script src="../scripts/ComparativoVer.js" type="text/javascript"></script>
 <link href="../libs/css/MyStyles.css" rel="stylesheet" type="text/css"/>
-
-<div  class="container">
-    <div class="col-xs-12">
-        <div class="col-xs-11">
-            <h3 id="TituloComparativoVer" class="TituloFecha"></h3>
-        </div>
-        <div id="ContenedorBtn" class="col-xs-1">
-            <button id="AnalizarCorte" type="button"  class="btn btn-small btn-primary">Analizar</button>
-        </div>
-    </div>
-    <div class="col-xs-12">
-         <ul id="OficinasPestañas" class="nav nav-tabs">
-    </div>
-</ul>  
-    <div class="col-xs-12">
-        <h3 id="FechaCorteVer" class="TituloFecha"></h3>
-    </div>
-   
-     <div class="col-xs-12">
-       <ul id="FraccionamientoPestañas" class="nav nav-tabs">
-    </div>
-     <div class="col-xs-12">
-        <h3 class="TituloRegistro">Agregar Registro:</h3>
-    </div>
-    <div class="col-xs-12">
-            <form class="form-inline LineaCierre">
+<div id="wrapper">
+    <?php $this->load->view('Partials/navigation'); ?>
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="col-xs-12">
+                <div class="col-xs-11">
+                    <h3 id="TituloComparativoVer"></h3>
+                </div>
+                <div id="ContenedorBtn" class="col-xs-1">
+                    <button id="AnalizarCorte" type="button"  class="btn btn-small btn-primary">Analizar Registros</button>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <ul id="OficinasPestañas" class="nav nav-tabs"></ul>
+            </div>
+            <div class="col-xs-12">
+                <h3 id="FechaCorteVer"></h3>
+            </div>
+            <div class="col-xs-12">
+              <ul id="FraccionamientoPestañas" class="nav nav-tabs">
+            </div>
+            <div class="col-xs-12">
+               <h3 class="TituloRegistro">Agregar Registro:</h3>
+            </div>
+            <div class="col-xs-12">
+                <form class="form-inline LineaCierre">
                     <div class="form-group">
                       <label for="clave">Clave: </label>
                       <input type="text" class="form-control" id="clave" placeholder="Clave">
@@ -47,10 +44,10 @@
                     <button id="AgregaClave" type="button"  class="btn btn-small btn-success">Agregar</button>
                     <div id="AlertaValidacionExito" class="alert alert-success"></div> 
                     <div id="AlertaValidacionError" class="alert alert-danger"></div>
-            </form>
-    </div>
-    <div class="col-xs-12">
-        <table id="example" class="table table-striped">
+                </form>
+            </div>
+            <div class="col-xs-12">
+                <table id="example" class="table table-striped">
                     <thead>
                         <tr>
                             <th>Clave</th>
@@ -59,9 +56,9 @@
                             <th>Accion</th>
                         </tr>
                     </thead>  
-                    <tbody id="CuerpoRegistros">
-                        
-                    </tbody>
+                    <tbody id="CuerpoRegistros"></tbody>
                 </table>
+            </div>
+        </div>
     </div>
 </div>

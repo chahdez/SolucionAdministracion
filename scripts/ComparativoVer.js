@@ -136,7 +136,7 @@ function RecuperaFraccionamientoFechas(FracciID){
                 data: {  ComparativoID : parseInt( compa) ,FraccionamientoID : parseInt(FracciID) }
               }).done(function( data ) { 
                   if(data.FechasCorteComparativo.length > 0){
-                   $("#FechaCorteVer").html("Fecha Corte: "+data.FechasCorteComparativo[0].FechaInicio+" - "+data.FechasCorteComparativo[0].FechaFin);   
+                   $("#FechaCorteVer").html("Fecha Corte: ["+data.FechasCorteComparativo[0].FechaInicio+"] a ["+data.FechasCorteComparativo[0].FechaFin+"]");   
                   }else{
                       alert("Este fraccionamiento, no tiene fecha de corte");
                       $("#FechaCorteVer").html("");

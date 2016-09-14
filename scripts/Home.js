@@ -1,18 +1,18 @@
 $(document).ready(function() {
      $('#example').DataTable( {
-        "ajax": "../API/comparativos"
+        "ajax": "API/comparativos"
     } );
 //CargaInformacionComparativos(); // Funcion que carga la tabla d elos comparativos
     $("#AgregarComparativo").click(function (){        
            $.ajax({
-                url:"../API/NuevoComparativo" ,
+                url:"API/NuevoComparativo" ,
                 type: "POST",
                 dataType: "JSON", 
                 data: { Titulo : $("#TituloComparativo").val()}
               }).done(function( data) {
                   $("#TituloComparativo").val("");
                   $("#CancelarTitulo").click();                            
-                 CargaInformacionComparativos("#example","../API/comparativos");
+                 CargaInformacionComparativos("#example","API/comparativos");
             });
     });
 } );
@@ -35,7 +35,7 @@ function CargaInformacionComparativos(tableId, urlData){
 // Funcion que nos lleva a ver los comparativos
 function VerComparativo(ComparativoID){
     localStorage.setItem("ComparativoID", ComparativoID); // Asignamos en SesionStore el comparativo
-    window.location.href = "../Comparativo/Ver";
+    window.location.href = "Comparativo/Ver";
 }
 // Funcion que nos lleva a editar los comparativos
 function EditarComparativo(){

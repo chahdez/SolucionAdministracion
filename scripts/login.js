@@ -32,7 +32,7 @@ function ValidaSesion() {
             }).done(function(data,textStatus,jqXHR ) {
                 console.log( "La solicitud se ha completado correctamente." );
                 if(parseInt(data.Login[0].Valid)){
-                    window.location.href = "Home/Index";
+                    window.location.href = "Home";
                 } else {
                     $("#AnswerLogin").html("*Informacion Incorrecta.").fadeIn("slow").removeClass("hidden").delay(1500).slideToggle("slow");    
                 }
