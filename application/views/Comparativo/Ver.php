@@ -55,7 +55,8 @@
                         <tr>
                             <th>Clave</th>
                             <th># Pago</th>
-                            <th>Importe</th>                            
+                            <th>Importe</th>   
+                            <th>Accion</th>
                         </tr>
                     </thead>  
                     <tbody id="CuerpoRegistros">
