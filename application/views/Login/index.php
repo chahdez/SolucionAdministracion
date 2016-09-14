@@ -12,8 +12,8 @@
     .formFormato{
                 height: 350px;
                 width: 550px;
-                background-color: #a9f5c4;
-                color: white;
+                background-color: white;
+                color: black;
                 -webkit-box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
                 -moz-box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
                 box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
