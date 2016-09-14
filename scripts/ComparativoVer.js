@@ -9,13 +9,8 @@ $(document).ready(function(){
          var clave = $("#clave").val();
          var numero = $("#numero").val();
          var importe = $("#importe").val();
-         var fraccionamientoID = "" ;
-        $("#FraccionamientoPestañas li").each(function (){
-            if($(this).hasClass("active")){
-                fraccionamientoID = (this.id).substring(7);
-                console.log(fraccionamientoID)
-            }
-        });
+         var fraccionamientoID = FraccionamientoActivo();
+       
          if(ValidaPrecio(importe)){
             if(clave != null && clave != ""){
                 if(numero != null && numero > 0){
@@ -36,6 +31,7 @@ $(document).ready(function(){
                              $("#numero").val(0);
                              $("#importe").val("");
                              $("#AlertaValidacionExito").html("<strong>Registro agregado con exito.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");     
+                           RecuperaFraccionamientoDatos();
                           }else{
                             $("#AlertaValidacionError").html("<strong>Ocurrio un error en los datos, verifique por favor.</strong>").fadeIn("slow").delay(2500).fadeOut("slow");     
                           }
@@ -111,19 +107,19 @@ function RecuperaSucursalInfo(OficinaID){
  });
 }
 // Funcion que devuelve el listado de datos de un fraccionamiento
-function RecuperaFraccionamientoDatos(FraccID){
+function RecuperaFraccionamientoDatos(){
       $.ajax({
                 url:"../API/PartidasComparativo" ,
                 type: "POST",
                 dataType: "JSON",
                 data: { 
                     ComparativoID :  localStorage.getItem("ComparativoID")
-                    ,FraccionamientoID : FraccID
+                    ,FraccionamientoID : FraccionamientoActivo()
                 }
-              }).done(function( data ) {  
+              }).done(function( data ) {
                   var filas = "";
               for(var i = 0; i < data.PartidasComparativo.length; i++){
-                  filas+= '<tr><td>'+data.PartidasComparativo[i].Clave+'</td><td>'+data.PartidasComparativo[i].NumeroPago+'</td><td>'+data.PartidasComparativo[i].ImporteTotal+'</td></tr>'
+                  filas+= '<tr><td>'+data.PartidasComparativo[i].Clave+'</td><td>'+data.PartidasComparativo[i].NumeroPago+'</td><td>'+data.PartidasComparativo[i].ImporteTotal+'</td><td>'+data.PartidasComparativo[i].Accion+'</td></tr>'
               }
               $("#CuerpoRegistros").html(filas);
             }).fail(function(data, textStatus ) {
@@ -159,7 +155,25 @@ function TituloFechaComparativo(ComparativoID){
         console.log( "La solicitud genero: "+textStatus );      
  });
 }
-
+// Funcion que elimina un fregistro
+function EliminarRegistro(RegistroID){
+               $.ajax({
+     url:"../API/EliminarRegistro" ,
+     type: "POST",
+     dataType: "JSON",
+     data: { id: RegistroID}
+   }).done(function( data ) {
+       if(data.EliminarRegistro[0].Eliminado == "Eliminado"){
+      RecuperaFraccionamientoDatos();  
+       }else{
+           alert("Hubo un error en la BD, intenta volver a eliminar");
+       }
+     
+ }).fail(function( textStatus ) {
+        console.log( "La solicitud genero: "+textStatus );      
+ });
+    
+}
 // Funcion que actualiz el tab de oficinas o sucursales
 function TabActivado(TabID , ContenedorID){
     var tab = TabID;
@@ -171,4 +185,15 @@ function TabActivado(TabID , ContenedorID){
         }
     });
     
+}
+// Funcion que devuelve el fraccionamiento activo
+function FraccionamientoActivo(){
+    var fraccioamientoActivo = "";
+    $("#FraccionamientoPestañas li").each(function (){
+            if($(this).hasClass("active")){
+                fraccioamientoActivo = (this.id).substring(7);
+              
+            }
+        }); 
+        return fraccioamientoActivo;
 }
