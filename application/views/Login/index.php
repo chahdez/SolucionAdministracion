@@ -3,9 +3,7 @@
 <script src="libs/js/jquery.js" type="text/javascript"></script>
 <script src="scripts/login.js"></script>
 <style>
-    body{ 
-        background-color: aliceblue;
-    }
+
     .formato{        
             margin-left: 420px;
             padding-top: 123px;
@@ -19,7 +17,7 @@
                 -webkit-box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
                 -moz-box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
                 box-shadow: 0px 0px 102px -4px rgba(0,0,0,0.46);
-                border-radius: 11px;
+                border-radius: 7px;
                 }
                 .formAlineacion{
                         padding-left: 70px;
@@ -38,7 +36,7 @@
 </style>
 <div class="container formato">
  
-           <div class="col-md-3 formFormato">
+           <div class="col-xs-3 formFormato">
                <form class="formAlineacion">
                 <div class="form-group formFormGroup1">
                   <label for="exampleInputEmail1">Usuario:</label>
@@ -48,7 +46,7 @@
                   <label for="exampleInputPassword1">Contraseña:</label>
                   <input type="password" class="form-control" id="Password" placeholder="Contraseña">
                 </div>
-                <div class="form-group col-lg-offset-7 formButon">
+                <div class="form-group col-xs-offset-7 formButon">
                     <button id="Ingresar" type="button" class="btn btn-success">Iniciar Sesion</button>
                 </div>
                  <div id="AnswerLogin" class="alert alert-danger hidden subFormatLogin"></div>
