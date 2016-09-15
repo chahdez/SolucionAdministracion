@@ -3,17 +3,23 @@ $(document).ready(function() {
         "ajax": "API/comparativos"
     } );
 //CargaInformacionComparativos(); // Funcion que carga la tabla d elos comparativos
-    $("#AgregarComparativo").click(function (){        
-           $.ajax({
+    $("#AgregarComparativo").click(function (){   
+        var comparativoTitulo =  $("#TituloComparativo").val();
+        if(comparativoTitulo != "" && comparativoTitulo != null){
+            $.ajax({
                 url:"API/NuevoComparativo" ,
                 type: "POST",
                 dataType: "JSON", 
-                data: { Titulo : $("#TituloComparativo").val()}
+                data: { Titulo : comparativoTitulo}
               }).done(function( data) {
                   $("#TituloComparativo").val("");
                   $("#CancelarTitulo").click();                            
                  CargaInformacionComparativos("#example","API/comparativos");
             });
+        }else{
+            alert("Agrega un titulo por favor.");
+        }
+           
     });
 } );
 
