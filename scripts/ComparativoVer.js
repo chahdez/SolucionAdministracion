@@ -11,7 +11,7 @@ $(document).ready(function(){
          var importe = $("#importe").val();
          var fraccionamientoID = FraccionamientoActivo();
        
-         if(ValidaPrecio(importe)){
+       
             if(clave != null && clave != ""){
                 if(numero != null && numero > 0){
                     $.ajax({
@@ -43,9 +43,7 @@ $(document).ready(function(){
             }else{
                 $("#AlertaValidacionError").html("<strong>Ingrese una clave por favor.</strong>").fadeIn("slow").delay(3500).fadeOut("slow");  
             }
-         }else{
-            $("#AlertaValidacionError").html("<strong>El precio ingresado no es uno valido.( Ejemplo: 150.00 , 1500.00, 15000.00 ... etc)</strong>").fadeIn("slow").delay(5500).fadeOut("slow"); 
-         }
+        
     });
     // Funcion que analiza el corte
     $("#AnalizarCorte").click(function (){
@@ -119,7 +117,7 @@ function RecuperaFraccionamientoDatos(){
               }).done(function( data ) {
                   var filas = "";
               for(var i = 0; i < data.PartidasComparativo.length; i++){
-                  filas+= '<tr><td>'+data.PartidasComparativo[i].Clave+'</td><td>'+data.PartidasComparativo[i].NumeroPago+'</td><td>'+data.PartidasComparativo[i].ImporteTotal+'</td><td>'+data.PartidasComparativo[i].Accion+'</td></tr>'
+                  filas+= '<tr><td>'+data.PartidasComparativo[i].Clave+'</td><td>'+data.PartidasComparativo[i].NumeroPago+'</td><td> $'+data.PartidasComparativo[i].ImporteTotal+'</td><td>'+data.PartidasComparativo[i].Accion+'</td></tr>'
               }
               $("#CuerpoRegistros").html(filas);
             }).fail(function(data, textStatus ) {
@@ -202,4 +200,10 @@ function FraccionamientoActivo(){
             }
         }); 
         return fraccioamientoActivo;
+}
+function Mayusculas(letra){
+    document.getElementById("clave").value = letra.toUpperCase();
+}
+function Pesos(pesos){
+    document.getElementById("importe").value = numeral(pesos).format('0,0.00');
 }
