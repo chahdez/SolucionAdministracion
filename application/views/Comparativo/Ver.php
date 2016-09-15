@@ -29,7 +29,7 @@
                 <form class="form-inline LineaCierre">
                     <div class="form-group">
                       <label for="clave">Clave: </label>
-                      <input type="text" class="form-control" id="clave" placeholder="Clave">
+                      <input type="text" class="form-control" id="clave" placeholder="Clave" onkeyup="Mayusculas(this.value)" onblur="Mayusculas(this.value)">
                     </div>
                     <div class="form-group">
                       <label  for="numero">Numero: </label>
@@ -38,8 +38,7 @@
                     </div>
                     <div class="form-group">
                       <label  for="importe">Importe: $</label>
-                      <input type="text" class="form-control" id="importe" 
-                             placeholder="00.00">
+                      <input type="text" class="form-control" id="importe" onblur="Pesos(this.value)" placeholder="00.00">
                     </div>
                     <button id="AgregaClave" type="button"  class="btn btn-small btn-success">Agregar</button>
                     <div id="AlertaValidacionExito" class="alert alert-success"></div> 
