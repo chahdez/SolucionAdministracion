@@ -62,10 +62,14 @@ $route['Terrenos'] = 'Terrenos';
 
 /*Colindancias*/
 $route['Colindancias'] = 'Catalogo';
+$route['Colindancias/Recuperar'] = 'Catalogo/ColindanciasRecuperar';
+$route['Colindancias/Insertar'] = 'Catalogo/ColindanciasInsertar';
 /*End Colindancias*/
 
 /*Gastos*/
 $route['Gastos'] = 'Catalogo';
+$route['Gastos/Recuperar'] = 'Catalogo/GastosTipoRecuperar';
+$route['Gastos/Insertar'] = 'Catalogo/GastosInsertarTipo';
 /*End GAstos*/
 
 $route['404_override'] = '';
