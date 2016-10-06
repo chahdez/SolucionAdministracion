@@ -55,5 +55,18 @@ $route['Login'] = 'Login';
 $route['API'] = 'API';
 $route['Comparativo/Ver'] = 'Comparativo';
 $route['Comparativo/Editar'] = 'Comparativo/Editar';
+
+/*Terrenos*/
+$route['Terrenos'] = 'Terrenos';
+/*End Terrenos*/
+
+/*Colindancias*/
+$route['Colindancias'] = 'Catalogo';
+/*End Colindancias*/
+
+/*Gastos*/
+$route['Gastos'] = 'Catalogo';
+/*End GAstos*/
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

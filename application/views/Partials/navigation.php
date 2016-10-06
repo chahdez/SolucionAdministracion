@@ -150,6 +150,37 @@
                 <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
             </li>-->
             <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#administracion"><i class="fa fa-fw fa-arrows-v"></i> Administración <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="administracion" class="collapse">
+                    <!--<li>
+                        <a href="Configuracion">Configuracion Fraccionamientos</a>
+                    </li>-->
+                    <li>
+                        <a href="Terrenos">Configuracion Terrenos</a>
+                    </li>
+                    <li>
+                        <a href="Catalogo">Colindancias</a>
+                    </li>
+                    <li>
+                        <a href="Catalogo">Gastos</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#revocaciones"><i class="fa fa-fw fa-arrows-v"></i> Revocaciones <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="revocaciones" class="collapse">
+                    <li>
+                        <a href="#">Corte</a>
+                    </li>
+                    <li>
+                        <a href="#">Pago</a>
+                    </li>
+                    <li>
+                        <a href="#">Gasto</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href=<?=$PATH . "Home" ?>><i class="fa fa-fw fa-bar-chart-o"></i> Comparativos</a>
             </li>
         </ul>
