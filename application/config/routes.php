@@ -58,6 +58,10 @@ $route['Comparativo/Editar'] = 'Comparativo/Editar';
 
 /*Terrenos*/
 $route['Terrenos'] = 'Terrenos';
+$route['Terrenos/Libres'] = 'Terrenos/RecuperarLibres';
+$route['Terrenos/Consultar'] = 'Terrenos/RecuperarInformacion';
+$route['Colindancias/Recuperar'] = 'Terrenos/RecuperarColindancias';
+
 /*End Terrenos*/
 
 /*Colindancias*/
