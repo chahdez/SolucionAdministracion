@@ -1,4 +1,5 @@
 <?php $PATH = "http://localhost/SolucionAdministracion/";?>
+<script src="scripts/Navigation.js" type="text/javascript"></script>
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -156,13 +157,13 @@
                         <a href="Configuracion">Configuracion Fraccionamientos</a>
                     </li>-->
                     <li>
-                        <a href="Terrenos">Configuracion Terrenos</a>
+                        <a  href="Terrenos">Configuracion Terrenos</a>
                     </li>
                     <li>
-                        <a href="Catalogo">Colindancias</a>
+                        <a onclick="VerCatalogoVista('Colindancias')" href="#">Colindancias</a>
                     </li>
                     <li>
-                        <a href="Catalogo">Gastos</a>
+                        <a  onclick="VerCatalogoVista('Gastos')" href="#">Gastos</a>
                     </li>
                 </ul>
             </li>

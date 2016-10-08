@@ -1,4 +1,4 @@
-<?php $PATH = "http://localhost/SolucionAdministracion/" ?>
+<?php $PATH = "http://localhost:8080/SolucionAdministracion/" ?>
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="<?=$PATH?>libs/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?=$PATH?>libs/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css"/>
