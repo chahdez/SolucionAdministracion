@@ -48,4 +48,3 @@ function EditarComparativo(){
     localStorage.setItem("ComparativoID", ComparativoID); // Asignamos en SesionStore el comparativo
     window.location.href = "Comparativo/Editar";
 }
-
