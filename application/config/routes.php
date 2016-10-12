@@ -76,5 +76,8 @@ $route['Gastos/Recuperar'] = 'Catalogo/GastosTipoRecuperar';
 $route['Gastos/Insertar'] = 'Catalogo/GastosInsertarTipo';
 /*End GAstos*/
 
+/* Revocacion Corte */
+$route['Revocacion'] = 'Revocacion';
+/* Revocacion Corte End */
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
