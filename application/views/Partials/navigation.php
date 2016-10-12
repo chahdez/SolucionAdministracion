@@ -171,13 +171,10 @@
                 <a href="javascript:;" data-toggle="collapse" data-target="#revocaciones"><i class="fa fa-fw fa-arrows-v"></i> Revocaciones <i class="fa fa-fw fa-caret-down"></i></a>
                 <ul id="revocaciones" class="collapse">
                     <li>
-                        <a href="#">Corte</a>
+                        <a onclick="VerRevocaciones('Corte')" href="#">Cortes</a>
                     </li>
                     <li>
-                        <a href="#">Pago</a>
-                    </li>
-                    <li>
-                        <a href="#">Gasto</a>
+                        <a onclick="VerRevocaciones('Folio')" href="#">Folios</a>
                     </li>
                 </ul>
             </li>
